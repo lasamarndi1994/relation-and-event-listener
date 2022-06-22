@@ -1,3 +1,46 @@
+
+## What I  did
+- Create a model and migration file through command license
+```
+php artisan make:model Post -m
+```
+- Make the relation 
+```
+    /**
+    * Get the many comments of the  post.
+    */
+    
+    public function comments(){
+       return $this->hasMany('App\Models\Comment');
+    }
+```
+- Create a  Event  through useing the command
+
+```
+php artisan make:event LoginEvent
+```
+- Create a listener useing through this command
+```
+php artisan make: listener LoginEvent
+```
+
+- Register Event and Listener
+```
+    /**
+    * Register any events for your application.
+    *
+    * @return void
+    */
+
+    public function boot()
+    {
+        Event::listen(
+        LoginEvent::class,
+        [LoginListener::class, 'handle']);
+    }
+
+```
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
 <p align="center">
